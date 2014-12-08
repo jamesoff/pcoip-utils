@@ -16,7 +16,7 @@ curl -k -c $COOKIEJAR  -d idle_timeout=0\&password_value=$PASSWORD https://$IP/c
 # TODO: grep the cookiejar to check we logged in
 
 echo Sending firmware...
-curl -k -b cookies -F upload_type=FW -F upload_file=@$FIRMWARE -F upload_button=Upload https://$IP/cgi-bin/upload/firmware_upload > /dev/null
+curl -k -b $COOKIEJAR -F upload_type=FW -F upload_file=@$FIRMWARE -F upload_button=Upload https://$IP/cgi-bin/upload/firmware_upload > /dev/null
 
 echo Removing temporary cookie jar
 rm $COOKIEJAR
